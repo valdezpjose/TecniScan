@@ -1,0 +1,41 @@
+<mat-card>
+  <mat-card-title>Calculadora</mat-card-title>
+  <mat-card-content>
+    <form [formGroup]="calcForm" (ngSubmit)="calculate()">
+      <mat-form-field>
+        <mat-label>Valor 1</mat-label>
+        <input matInput formControlName="operand1" type="number" required>
+        <mat-error *ngIf="calcForm.get('operand1')?.hasError('required')">
+          Valor 1 es requerido
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Valor 2</mat-label>
+        <input matInput formControlName="operand2" type="number" required>
+        <mat-error *ngIf="calcForm.get('operand2')?.hasError('required')">
+          Valor 2 es requerido
+        </mat-error>
+      </mat-form-field>
+
+      <div>
+        <button mat-raised-button color="primary" type="button" (click)="setOperation('sum')" [class.active]="isActive('sum')">+</button>
+        <button mat-raised-button color="primary" type="button" (click)="setOperation('subtract')" [class.active]="isActive('subtract')">-</button>
+        <button mat-raised-button color="primary" type="button" (click)="setOperation('multiply')" [class.active]="isActive('multiply')">*</button>
+        <button mat-raised-button color="primary" type="button" (click)="setOperation('divide')" [class.active]="isActive('divide')">/</button>
+      </div>
+
+      <br>
+      <br>
+
+
+      <div>
+        <button mat-raised-button color="accent" type="submit">Calcular</button>
+      </div>
+    </form>
+
+    <div *ngIf="result !== null">
+      <h3>Resultado: {{ result }}</h3>
+    </div>
+  </mat-card-content>
+</mat-card>

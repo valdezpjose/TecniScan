@@ -1,0 +1,29 @@
+mat-card {
+  max-width: 400px;
+  margin: 2rem auto;
+  padding: 1rem;
+}
+
+mat-form-field {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+button {
+  margin-right: 0.5rem;
+}
+
+button.active {
+  background-color: #1976d2;
+  color: white;
+}
+
+button:hover {
+  background-color: #1565c0;
+  color: white;
+}
+
+h3 {
+  margin-top: 1rem;
+  text-align: center;
+}
